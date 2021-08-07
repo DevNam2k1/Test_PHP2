@@ -55,4 +55,15 @@ class CustomerController extends Controller
 
         return view('customer.list')->with('all_customer',$all_customer);
     }
+    public function search(Request $request){
+
+       
+       $keywords = $request->keywords_submit;
+
+       $search_customer = DB::table('tbl_customer')->where('customer_name',$keywords)->get();
+
+
+       return view('customer.list')->with('all_customer',$search_customer);
+
+   }
 }
