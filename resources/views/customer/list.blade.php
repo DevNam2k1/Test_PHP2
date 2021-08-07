@@ -32,6 +32,15 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
+              <div class="col-sm-5">
+                <form action="{{URL::to('/tim-kiem')}}" method="POST">
+                    {{csrf_field()}}
+                <div class="search_box pull-right">
+                    <input type="text" name="keywords_submit" placeholder="Tìm kiếm khách hàng"/>
+                    <input type="submit" style="margin-top:0;color:#666" name="search_items" class="btn btn-primary btn-sm" value="Tìm kiếm">
+                </div>
+                </form>
+            </div>
               <table id="example1" class="table table-bordered table-striped" style="text-align: center ;" border="1">
     
                 <br>
