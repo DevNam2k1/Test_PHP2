@@ -17,3 +17,4 @@ Route::get('/customer/create','CustomerController@create');
 Route::get('/customer','CustomerController@list');
 
 Route::post('/add-customer','CustomerController@add_customer');
+Route::post('/tim-kiem','CustomerController@search');
