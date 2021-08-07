@@ -60,7 +60,7 @@ class CustomerController extends Controller
        
        $keywords = $request->keywords_submit;
 
-       $search_customer = DB::table('tbl_customer')->where('customer_name',$keywords)->get();
+       $search_customer = DB::table('tbl_customer')->where('customer_name','like','%'.$keywords.'%')->get();
 
 
        return view('customer.list')->with('all_customer',$search_customer);
