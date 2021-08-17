@@ -51,7 +51,7 @@
                     <th>Giới Tính</th>
                     <th>Số Điện Thoại</th>
                     <th>Email</th>
-                    <th>Ảnh</th>
+                
                     
                   </tr>
                 </thead>
@@ -68,12 +68,12 @@
                 
                     <td>{{$customer->phone}}</td>
                     <td>{{$customer->email}}</td>
-                    <td><img src="public/backend/dist/img/{{ $customer->image }}" height="100" width="100"></td>
+                    {{-- <td><img src="public/backend/dist/img/{{ $customer->image }}" height="100" width="100"></td> --}}
                   </tr>
                   @endforeach
                 </tbody>
               </table>
-              {{ $all_customer->links() }}
+              
             </div>
             <!-- /.card -->
           </div>

@@ -36,13 +36,11 @@ class CustomerController extends Controller
              $customer->gender = $data['gender'];
              $customer->phone = $data['phone'];
              $customer->email = $data['email'];
-             $customer->image = $data['image'];
              $customer->save();
              return redirect()->back()->with('message','Thêm thành thành công');
     }
     public function list(){
-        $all_customer = DB::table('tbl_customer')->paginate(1)->get();
-
+        $all_customer = DB::table('tbl_customer')->get();
         return view('customer.list')->with('all_customer',$all_customer);
     }
     public function search(Request $request){
