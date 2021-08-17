@@ -73,6 +73,7 @@
                   @endforeach
                 </tbody>
               </table>
+              {{ $all_customer->links() }}
             </div>
             <!-- /.card -->
           </div>

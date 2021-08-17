@@ -10,7 +10,7 @@ class Customer extends Model
     use HasFactory;
     public $timestamps = false; //set time to false
     protected $fillable = [
-    	'customer_name', 'gender', 'image','phone','email'
+    	'customer_name', 'gender','phone','email'
     ];
     protected $primaryKey = 'customer_id';
  	protected $table = 'tbl_customer';

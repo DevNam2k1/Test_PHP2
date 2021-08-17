@@ -20,8 +20,7 @@ class CustomerController extends Controller
             'email' => 'required|email',
             'customer_name' => 'required',
             'phone' => 'required|max:10',
-            'gender' => 'required',
-            'image' => 'required',
+            'gender' => 'required'
         ],
         [
             'admin_email.dns' => 'Vui lòng nhập đúng dịnh dạng!',
@@ -31,14 +30,7 @@ class CustomerController extends Controller
             'password.max' => 'Mật khẩu nhiều nhất 20 kí tự!'
         ] 
         );
-        $get_image = $request->file('image');
-      
-         if($get_image){
-             $get_name_image = $get_image->getClientOriginalName();
-             $name_image = current(explode('.',$get_name_image));
-             $new_image =  $name_image.rand(0,99).'.'.$get_image->getClientOriginalExtension();
-             $get_image->move('public/backend/dist/img',$new_image);
-             $data['image'] = $new_image;
+
              $customer = new Customer();
              $customer->customer_name = $data['customer_name'];
              $customer->gender = $data['gender'];
@@ -47,11 +39,9 @@ class CustomerController extends Controller
              $customer->image = $data['image'];
              $customer->save();
              return redirect()->back()->with('message','Thêm thành thành công');
-         }
-         
     }
     public function list(){
-        $all_customer = DB::table('tbl_customer')->get();
+        $all_customer = DB::table('tbl_customer')->paginate(1)->get();
 
         return view('customer.list')->with('all_customer',$all_customer);
     }
